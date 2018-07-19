@@ -439,6 +439,18 @@ def SetObjects(request, callback, customData = None, extraHeaders = None):
 
     PlayFabHTTP.DoPost("/Object/SetObjects", request, "X-EntityToken", PlayFabSettings._internalSettings.EntityToken, wrappedCallback, customData, extraHeaders)
 
+# Updates the entity's locale
+# https://api.playfab.com/documentation/entity/method/SetProfileLocale
+def SetProfileLocale(request, callback, customData = None, extraHeaders = None):
+    if not PlayFabSettings._internalSettings.EntityToken:
+         raise PlayFabErrors.PlayFabException("Must call GetEntityToken before calling this method")
+
+    def wrappedCallback(playFabResult, error):
+        if callback:
+            callback(playFabResult, error)
+
+    PlayFabHTTP.DoPost("/Profile/SetProfileLocale", request, "X-EntityToken", PlayFabSettings._internalSettings.EntityToken, wrappedCallback, customData, extraHeaders)
+
 # Sets the profiles access policy
 # https://api.playfab.com/documentation/entity/method/SetProfilePolicy
 def SetProfilePolicy(request, callback, customData = None, extraHeaders = None):

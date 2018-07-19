@@ -387,6 +387,7 @@ class PlayFabErrorCode(Enum):
     ExplicitContentDetected = 1389,
     PIIContentDetected = 1390,
     InvalidScheduledTaskParameter = 1391,
+    PerEntityEventRateLimitExceeded = 1392,
     MatchmakingEntityInvalid = 2001,
     MatchmakingPlayerAttributesInvalid = 2002,
     MatchmakingCreateRequestMissing = 2003,
@@ -418,7 +419,8 @@ class PlayFabErrorCode(Enum):
     MatchmakingTicketAlreadyCompleted = 2029,
     MatchmakingHopperIdInvalid = 2030,
     MatchmakingHopperConfigInvalid = 2031,
-    MatchmakingMemberProfileInvalid = 2032
+    MatchmakingMemberProfileInvalid = 2032,
+    WriteAttemptedDuringExport = 2033
 
 class PlayFabError:
     # the first args item is expected to be a valid dictionary
